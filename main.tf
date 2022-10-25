@@ -58,5 +58,4 @@ resource "yandex_compute_instance" "vm" {
     nat       = true
     ipv6      = false
   }
-  
 }
