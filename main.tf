@@ -28,12 +28,12 @@ resource "yandex_vpc_subnet" "subnet" {
 }
 
 resource "yandex_compute_instance" "vm" {
-  count       = local.web_instance_count_map[terraform.workspace]
-  name        = "srv-cnt-0${count.index}"
-  hostname    = "srv-cnt-0${count.index}.local"
+  count       = "1"
+  name        = "srv-cnt-01"
+  hostname    = "srv-cnt-01"
   platform_id = "standard-v1"
 
-  description = "Srv-cnt-${terraform.workspace}-0${count.index}"
+  description = "Srv-cnt-01"
 
   lifecycle {
     create_before_destroy = true
@@ -58,4 +58,5 @@ resource "yandex_compute_instance" "vm" {
     nat       = true
     ipv6      = false
   }
+  
 }
